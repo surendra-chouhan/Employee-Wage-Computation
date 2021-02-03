@@ -12,6 +12,8 @@ max_hours=100;
 total_working_days=0;
 total_work_hours=0;
 
+declare -A dailyWage
+
 function getWorkingHours() {
 	case $1 in
 		$isFullTime)
@@ -43,5 +45,10 @@ do
 
 done
 
+echo "Daily Wage of an Employee is : "
+for k in ${!dailyWage[@]}
+do
+	echo "Day " $k " : " ${dailyWage[$k]}
+done | sort -n -k2
+
 echo "Monthly Wage of an Employee is : " $total_salary
-echo "Daily Wage of an Employee is : " ${dailyWage[@]}
