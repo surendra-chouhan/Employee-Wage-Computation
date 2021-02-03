@@ -27,4 +27,4 @@ do
 	Monthly_Wage=$(( $Monthly_Wage + $Salary ));
 done
 
-echo "Monthly Wage of an Employee is : " $Monthly_Wage
+echo "Monthly Wage is : " $Monthly_Wage
