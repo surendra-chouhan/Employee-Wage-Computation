@@ -2,17 +2,21 @@
 
 echo "Welcome to Employee Wage Computation Program!"
 
-isPresent=1;
-randomCheck=$((RANDOM%2));
-full_day_hour=8;
+randomCheck=$((RANDOM%3));
 wage_per_hour=20;
+isPartTime=1;
+isFullTime=2;
 
-if [[ $isPresent -eq $randomCheck ]]
+if [[ $isFullTime -eq $randomCheck ]]
 then
-        echo "Employee is Present";
-	empWage=$(($wage_per_hour*$full_day_hour));
-        echo "Employee wage is : " $empWage;
+        echo "Employee is FullTime";
+	emp_hour=8;
+elif [[ $isPartTime -eq $randomCheck ]]
+then
+	echo "Employee is PartTime";
+	emp_hour=4
 else
-        echo "Employee is not Present"
-        echo "Employee wage is : 0";
+        echo "Employee is Absent";
+	emp_hour=0;
 fi
+echo "Employee Wage is : " $(($emp_hour*$wage_per_hour));
