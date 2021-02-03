@@ -23,11 +23,11 @@ case $empCheck in
 		;;
 esac
 
-while [[ $total_working_days -lt $No_of_working_days ]]
+while [[ $total_working_days -lt $No_of_working_days && $total_work_hours -lt $max_hours  ]]
 do
 	((total_working_days++))
 	total_work_hours=$(($total_work_hours+$emp_hour))
+	total_salary=$(( $total_work_hours * $wage_per_hour * $total_working_days ))
 done
 
-total_salary=$(( $total_work_hours * $wage_per_hour ))
 echo "Monthly Wage of an Employee is : " $total_salary
